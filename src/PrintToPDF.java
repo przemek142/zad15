@@ -1,23 +1,19 @@
 import java.io.FileOutputStream;
 
-import java.awt.Color;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 public class PrintToPDF {
 
     public static void createPDF(ArrayList<Product> products, Invoice invoice) {
-        System.out.println("DefaultCell");
+        System.out.println("Generowanie PDF ...");
 
         // step 1: creation of a document-object
         Document document = new Document();
@@ -35,15 +31,12 @@ public class PrintToPDF {
             document.add(new Paragraph(" "));
 
             PdfPTable table = new PdfPTable(4);
-//            PdfPCell cell = new PdfPCell(new Paragraph("Faktura VAT"));
-//            cell.setColspan(4);
-//            table.addCell(cell);
             table.addCell("Nazwa");
             table.addCell("Cena netto");
             table.addCell("Vat[%]");
             table.addCell("Cena brutto");
 
-//            Collections.sort(products);
+            Collections.sort(products);
             for (Product product : products) {
                 table.addCell(product.getName());
                 table.addCell(product.getNetPrice().toString());

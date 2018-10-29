@@ -73,8 +73,8 @@ public class Product implements Comparable<Product> {
 
     @Override
     public int compareTo(Product o) {
-        if (this.VAT.compareTo(o.VAT) != 0) {
-            if (this.netPrice.compareTo(o.netPrice) != 0) {
+        if (this.VAT.compareTo(o.VAT) == 0) {
+            if (this.netPrice.compareTo(o.netPrice) == 0) {
                 return this.name.compareTo(o.name);
             } else
                 return this.netPrice.compareTo(o.netPrice);

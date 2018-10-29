@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -19,8 +20,8 @@ public class Main {
 
         Invoice invoice = new Invoice();
         invoice.calc(products);
-        System.out.println(invoice);
 
         PrintToPDF.createPDF(products, invoice);
+
     }
 }
